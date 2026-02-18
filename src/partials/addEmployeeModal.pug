@@ -1,0 +1,70 @@
+.modal.fade#employeeModal(tabindex="-1")
+  .modal-dialog.modal-dialog-centered
+    .modal-content.custom-modal
+
+      form#employeeForm.needs-validation(novalidate)
+
+        .modal-header.border-0
+          h5.modal-title#employeeModalTitle Add New Employee
+          button.btn-close(type="button" data-bs-dismiss="modal")
+
+        .modal-body
+          input(type="hidden" id="employeeId")
+
+          .row
+            .col-md-6
+              .mb-3
+                label.form-label First Name 
+                span.text-danger  *
+                input#firstName.form-control.custom-input(
+                  type="text"
+                  placeholder="Enter first name"
+                  required
+                  minlength="3"
+                  autocomplete="off"
+                )
+                .invalid-feedback First name must be at least 2 characters.
+
+            .col-md-6
+              .mb-3
+                label.form-label Last Name
+                input#lastName.form-control.custom-input(
+                  type="text"
+                  placeholder="Enter last name"
+                  autocomplete="off"
+                )
+
+          .mb-3
+            label.form-label Email
+            span.text-danger  *
+            input#email.form-control.custom-input(
+              type="email"
+              placeholder="email@company.com"
+              required
+              autocomplete="off"
+            )
+            .invalid-feedback Please enter a valid email.
+
+          .mb-3
+            label.form-label Department
+            span.text-danger  *
+            select#department.form-select.custom-input(required)
+              option(value="") Select Department
+            .invalid-feedback Please select department.
+
+          .mb-3
+            label.form-label Branch
+            span.text-danger  *
+            select#branch.form-select.custom-input(required)
+              option(value="") Select Branch
+            .invalid-feedback Please select branch.
+
+          .mb-3
+            label.form-label Status
+            span.text-danger  *
+            select#status.form-select.custom-input(required)
+              option(value="true") Active
+              option(value="false") Inactive
+
+        .modal-footer.border-0
+          button#saveEmployeeBtn.btn.btn-dark.custom-submit.w-100.mt-3(type="submit") Save Employee

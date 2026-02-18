@@ -1,0 +1,42 @@
+extends layout.pug
+
+block content
+
+    .topbar.d-flex.justify-content-between.align-items-center.p-3
+        h5.mb-0 Stock View
+
+    .container-fluid.p-4
+
+        .section.d-flex.justify-content-between.align-items-center.mb-4
+            .left-content
+                h5.mb-1 Stock View
+                p.text-muted.mb-0 Assets available for assignment
+
+        .card.search-card.p-3.mb-3
+            .filter-wrapper.d-flex.justify-content-between.align-items-center.flex-wrap
+
+                .search-container.position-relative
+                    i.bi.bi-search.search-icon
+                    input#customSearch.form-control.search-input(
+                        type="text"
+                        placeholder="Search by name, category, or ID..."
+                    )
+
+                .branch-container
+                    select#stockBranch.form-select.status-select
+                        option(value="") All Branch
+
+        .card.p-3
+            .table-responsive
+                table#stockTable.table.table-striped(style="width:100%")
+                    thead
+                        tr
+                            th Asset Details
+                            th Category
+                            th Make / Model
+                            th Branch
+                            th Created At
+                    tbody
+
+
+        script(type="module" src="./ts/stock.ts")

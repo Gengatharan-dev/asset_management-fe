@@ -1,0 +1,64 @@
+nav.sidebar
+    .container-fluid.pb-3
+        .d-flex.align-items-center.gap-2
+            svg.logo-icon(
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2563EB"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            )
+                path(d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z")
+                polyline(points="3.27 6.96 12 12.01 20.73 6.96")
+                line(x1="12" y1="22.08" x2="12" y2="12")
+
+            h6.logo-text.mb-0 AssetTrack
+
+    ul.nav.flex-column
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./dashboard.pug")
+                i.bi.bi-grid
+                span Dashboard
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./employee.pug") 
+                i.bi.bi-people
+                span Employees
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./asset.pug") 
+                i.bi.bi-box-seam
+                spam Assets
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./category.pug")
+                i.bi.bi-tags
+                span Categories
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./stock.pug")
+                i.bi.bi-card-list
+                span Stock View
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./issue-asset.pug")
+                i.bi.bi-box-arrow-up-right
+                span Issue Asset
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./return-asset.pug")
+                i.bi.bi-box-arrow-down-left.me2
+                span Return Asset
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./scrap-asset.pug")
+                i.bi.bi-trash
+                span Scrap Asset
+
+        li.nav-item
+            a.nav-link.d-flex.align-items-center.gap-2(href="./history.pug")
+                i.bi.bi-clock-history
+                span Asset History

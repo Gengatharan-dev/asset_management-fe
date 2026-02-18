@@ -1,0 +1,62 @@
+extends layout.pug
+
+block content
+
+    .topbar.d-flex.justify-content-between.align-items-center.p-3
+        h5.mb-0 Asset History
+
+    .container-fluid.p-4
+
+        .section.d-flex.justify-content-between.align-items-center.mb-4
+            .left-content
+                h5.mb-1 Asset History
+                p.text-muted.mb-0 Complete lifecycle tracking from purchase to disposal
+
+        input(type="hidden" id="assetId")
+
+        .card.search-card.p-3.mb-3
+            .filter-wrapper.d-flex.justify-content-between.align-items-center.flex-wrap
+
+                .asset-container
+                    select#historyAsset.form-select.status-select
+                        option(value="") Select All Asset
+
+        .row.g-4.mb-3
+
+            .col-lg-4
+                .card.p-4.dashboard-card
+                    .d-flex.justify-content-between.align-items-center
+                        div
+                            p.text-muted.mb-1 Total Issued
+                            h2.fw-bold#totalIssued 0
+                        .icon-box.bg-primary-subtle.text-primary
+                            i.bi.bi-box-arrow-up-right.fs-4
+
+            .col-lg-4
+                .card.p-4.dashboard-card
+                    .d-flex.justify-content-between.align-items-center
+                        div
+                            p.text-muted.mb-1 Total Return
+                            h2.fw-bold#totalReturn 0
+                        .icon-box.bg-success-subtle.text-success
+                            i.bi.bi-box-arrow-down-left.fs-4
+
+            .col-lg-4
+                .card.p-4.dashboard-card
+                    .d-flex.justify-content-between.align-items-center
+                        div
+                            p.text-muted.mb-1 Total Event
+                            h2.fw-bold#totalEvents 0
+                        .icon-box.bg-warning-subtle.text-warning
+                            i.bi.bi-arrow-up-right.fs-4
+
+        .card.p-3
+            h5.mb-4 Complete Timeline
+
+            .timeline-container
+                #timelineContent
+                    | No Asset History
+
+
+
+        script(type="module" src="./ts/history.ts")

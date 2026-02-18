@@ -1,0 +1,86 @@
+extends layout.pug
+
+block content
+
+    .topbar.d-flex.justify-content-between.align-items-center.p-3
+        h5.mb-0 Issue Asset
+
+    .container-fluid.p-4
+
+        .section.d-flex.justify-content-between.align-items-center.mb-4
+            .left-content
+                h5.mb-1 Issue Asset
+                p.text-muted.mb-0 Assign an asset to an employee
+
+        input(type="hidden" id="empId")
+
+        .row
+            // LEFT SIDE FORM
+            .col-lg-8
+                .card.custom-card.p-4
+
+                    form#issueForm.needs-validation(novalidate)
+
+                        .mb-3
+                            label.form-label Select Employee
+                            spam.text-danger  *
+                            select#employee.form-select.custom-input(required)
+                                option(value="") Select employee
+                            .invalid-feedback Please select employee.
+
+                        .mb-3
+                            label.form-label Select Stock Asset
+                            spam.text-danger  *
+                            i.bi.bi-info-circle.ms-2.text-muted(
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="right"
+                                title="Display assets based on the employee's branch"
+                                style="cursor:pointer;"
+                            )
+                            select#asset.form-select.custom-input(required)
+                                option(value="") Select asset to stock
+                            .invalid-feedback Please select asset.
+
+                        .mb-3
+                            label.form-label Issue Date
+                            spam.text-danger  *
+                            input#issueDate.form-control.custom-input(
+                                type="date"
+                                required
+                            )
+                            .invalid-feedback Please select issue date.
+
+                        .mb-3
+                            label.form-label Notes
+                            textarea#notes.form-control.custom-input(
+                                rows="4"
+                                placeholder="Add any additional notes..."
+                            )
+
+                        button.btn.btn-dark.custom-submit.w-100.mt-3(type="submit")
+                            i.bi.bi-box-arrow-up-right.me-2
+                            | Issue Asset
+
+
+            // RIGHT SIDE SUMMARY
+            .col-lg-4
+                .card.custom-card.p-4.mb-3
+                    h6.mb-3 Issue Summary
+
+                    .summary-item
+                        small.text-muted Employee
+                        p.mb-1.fw-semibold#summaryEmployee -
+
+                    hr
+
+                    .summary-item
+                        small.text-muted Asset
+                        p.mb-1.fw-semibold#summaryAsset -
+
+                    hr
+                .card.custom-card.p-4
+                    h6.mb-3 Available Stock
+                    h2.text-primary.fw-bold#availableStock 0
+                    small.text-muted Assets ready to issue
+
+        script(type="module" src="./ts/issue-asset.ts")

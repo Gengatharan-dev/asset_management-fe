@@ -1,0 +1,42 @@
+.modal.fade#categoryModal(tabindex="-1")
+  .modal-dialog.modal-dialog-centered
+    .modal-content.custom-modal
+
+      form#categoryForm.needs-validation(novalidate)
+
+        .modal-header.border-0
+          h5.modal-title#categoryModalTitle Add New Category
+          button.btn-close(type="button" data-bs-dismiss="modal")
+
+          input(type="hidden" id="categoryId")
+
+        .modal-body
+
+          .mb-3
+            label.form-label Name
+            span.text-danger  *
+            input#categoryName.form-control.custom-input(
+              type="text"
+              placeholder="e.g. Laptop, Mobile"
+              required
+              autocomplete="off"
+            )
+            .invalid-feedback Please enter a category name.
+
+          .mb-3
+            label.form-label Status
+            span.text-danger  *
+            select#categoryStatus.form-select.custom-input(required)
+              option(value="true") Active
+              option(value="false") Inactive
+
+          .mb-3
+            label.form-label Description
+            input#categoryDescription.form-control.custom-input(
+              type="text"
+              placeholder="Brief description of this category"
+              autocomplete="off"
+            )
+
+        .modal-footer.border-0
+          button#saveCategoryBtn.btn.btn-dark.custom-submit.w-100.mt-3(type="submit") Save Category

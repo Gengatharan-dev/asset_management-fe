@@ -1,0 +1,118 @@
+.modal.fade#assetModal(tabindex="-1")
+  .modal-dialog.modal-dialog-centered
+    .modal-content.custom-modal
+
+      form#assetForm.needs-validation(novalidate)
+
+        .modal-header.border-0
+          h5.modal-title#assetModalTitle Add New Asset
+          button.btn-close(type="button" data-bs-dismiss="modal")
+
+        .modal-body
+          input(type="hidden" id="assetId")
+
+          .mb-3
+            label.form-label Name
+            span.text-danger  *
+            input#name.form-control.custom-input(
+              type="text"
+              placeholder="HP intel core 5"
+              required
+              autocomplete="off"
+            )
+            .invalid-feedback Please enter a asset name.
+
+          .mb-3
+            label.form-label Category
+            span.text-danger  *
+            select#category.form-select.custom-input(required)
+              option(value="") Select Category
+            .invalid-feedback Please select category.
+
+          .row
+            .col-md-6
+              .mb-3
+                .d-flex.justify-content-between.align-items-center.mb-1
+                  label.form-label.mb-0 Brand
+                    span.text-danger *
+                  button#openBrandForm.btn.btn-sm.btn-link.p-0(type="button") + Add Brand
+
+                select#brand.form-select.custom-input(required)
+                  option(value="") Select Brand
+
+                .invalid-feedback Please select brand.
+
+
+            .col-md-6
+              .mb-3
+                .d-flex.justify-content-between.align-items-center.mb-1
+                  label.form-label.mb-0 Model
+                    span.text-danger *
+                  button#openModelForm.btn.btn-sm.btn-link.p-0(type="button") + Add Model
+
+                select#model.form-select.custom-input(required)
+                  option(value="") Select Model
+
+                .invalid-feedback Please select model.
+
+            // Add brand form 
+            #newBrandWrapper.d-none.mt-3
+              .card.p-3.bg-light.rounded-3.border-0
+
+                .row.g-3
+                  .col-md-6
+                    label.form-label Brand Name 
+                      span.text-danger  *
+                    input#newBrandName.form-control.custom-input(
+                      type="text"
+                      placeholder="Enter brand name"
+                      minlength="2"
+                    )
+                    .invalid-feedback Brand name must be at least 2 characters.
+
+                  .col-md-6
+                    label.form-label Status
+                      span.text-danger  *
+                    select#brandStatus.form-select.custom-input
+                      option(value="true") Active
+                      option(value="false") Inactive
+                    .invalid-feedback Please select status.
+
+                .text-end.mt-3
+                  button#saveBrandBtn.btn.btn-dark(type="button") Save Brand
+
+            // Add Model form 
+            #newModelWrapper.d-none.mt-3
+              .card.p-3.bg-light.rounded-3.border-0
+
+                .row.g-3
+                  .col-md-6
+                    label.form-label Model Name
+                      span.text-danger  *
+                    input#newModelName.form-control.custom-input(
+                      type="text"
+                      placeholder="Enter model name"
+                      minlength="6"
+                    )
+                    .invalid-feedback Model name must be at least 2 characters.
+
+                  .col-md-6
+                    label.form-label Status
+                      span.text-danger  *
+                    select#modelStatus.form-select.custom-input
+                      option(value="true") Active
+                      option(value="false") Inactive
+                    .invalid-feedback Please select status.
+
+              .text-end.mt-3
+                button#saveModelBtn.btn.btn-dark(type="button") Save Model
+
+          .mb-3
+            label.form-label Branch
+            span.text-danger  *
+            select#assetModelBranch.form-select.custom-input(required)
+              option(value="") Select Branch
+            .invalid-feedback Please select branch.
+
+        .modal-footer.border-0
+          button#saveAssetBtn.btn.btn-dark.custom-submit.w-100.mt-3(type="submit") Save Asset

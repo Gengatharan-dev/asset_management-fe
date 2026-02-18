@@ -1,0 +1,74 @@
+extends layout.pug
+
+block content
+
+    .topbar.d-flex.justify-content-between.align-items-center.p-3
+        h5.mb-0 Return Asset
+
+    .container-fluid.p-4
+
+        .section.d-flex.justify-content-between.align-items-center.mb-4
+            .left-content
+                h5.mb-1 Return Asset
+                p.text-muted.mb-0 Assign an asset to an employee
+
+        .row
+            // LEFT SIDE FORM
+            .col-lg-8
+                .card.custom-card.p-4
+
+                    form#returnForm.needs-validation(novalidate)
+
+                        input(type="hidden" id="empId")
+                        
+                        .mb-3
+                            label.form-label Select Issued Asset
+                            spam.text-danger  *
+                            select#issuedAsset.form-select.custom-input(required)
+                                option(value="") Select asset to return
+                            .invalid-feedback Please select asset.
+
+                        .mb-3
+                            label.form-label Select Return Reason
+                            spam.text-danger  *
+                            select#returnStatus.form-select.custom-input(required)
+                                option(value="") Select return reason
+                            .invalid-feedback Please select return reason.
+
+                        .mb-3
+                            label.form-label Return Date
+                            spam.text-danger  *
+                            input#returnDate.form-control.custom-input(
+                                type="date"
+                                required
+                            )
+                            .invalid-feedback Please select return date.
+
+                        .mb-3
+                            label.form-label Notes
+                            textarea#notes.form-control.custom-input(
+                                rows="4"
+                                placeholder="Add any additional notes..."
+                            )
+
+                        button.btn.btn-dark.custom-submit.w-100.mt-3(type="submit")
+                            i.bi.bi-box-arrow-down-left.me-2
+                            | Return Asset
+
+
+            // RIGHT SIDE SUMMARY
+            .col-lg-4
+                .card.custom-card.p-4.mb-3#returnSummaryCard
+                    h6.mb-3 Return Summary
+
+                    #returnSummaryContent.text-center.text-muted.py-4
+                        i.bi.bi.fs-1.d-block.mb-2
+                        span No asset selected
+
+                .card.custom-card.p-4
+                    h6.mb-3 Currently Issued
+                    h2.text-warning.fw-bold#issuedCount 0
+                    small.text-muted Assets with employees
+
+
+        script(type="module" src="./ts/return-asset.ts")

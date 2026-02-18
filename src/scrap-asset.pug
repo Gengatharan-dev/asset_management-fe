@@ -1,0 +1,67 @@
+extends layout.pug
+
+block content
+
+    .topbar.d-flex.justify-content-between.align-items-center.p-3
+        h5.mb-0 Scrap Asset
+
+    .container-fluid.p-4
+
+        .section.d-flex.justify-content-between.align-items-center.mb-4
+            .left-content
+                h5.mb-1 Scrap Asset
+                p.text-danger.mb-0 Scrapped assets will be marked as obsolete and removed from operational views. This action will be recorded in the asset history for audit purposes.
+
+        .row
+            // LEFT SIDE FORM
+            .col-lg-8
+                .card.custom-card.p-4
+
+                    form#returnForm.needs-validation(novalidate)
+
+                        input(type="hidden" id="empId")
+                        
+                        .mb-3
+                            label.form-label Select Asset to Scrap
+                            spam.text-danger  *
+                            select#scrapedAsset.form-select.custom-input(required)
+                                option(value="") Select asset to scrap
+                            .invalid-feedback Please select asset.
+
+                        .mb-3
+                            label.form-label Scrap Date
+                            spam.text-danger  *
+                            input#scrapDate.form-control.custom-input(
+                                type="date"
+                                required
+                            )
+                            .invalid-feedback Please select scrap date.
+
+                        .mb-3
+                            label.form-label Notes
+                            textarea#notes.form-control.custom-input(
+                                rows="4"
+                                placeholder="Add any additional notes..."
+                            )
+
+                        button.btn.btn-dark.custom-submit.w-100.mt-3(type="submit")
+                            i.bi.bi-trash.me-2
+                            | Scrap Asset
+
+
+            // RIGHT SIDE SUMMARY
+            .col-lg-4
+                .card.custom-card.p-4.mb-3#returnSummaryCard
+                    h6.mb-3 Scrap Summary
+
+                    #scrapSummaryContent.text-center.text-muted.py-4
+                        i.bi.fs-1.d-block.mb-2
+                        span No asset selected
+
+                .card.custom-card.p-4
+                    h6.mb-3 Available for Scrap
+                    h2.text-danger.fw-bold#issuedCount 0
+                    small.text-muted Assets with employees
+
+
+        script(type="module" src="./ts/scrap-asset.ts")

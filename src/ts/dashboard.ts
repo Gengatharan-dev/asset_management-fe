@@ -59,15 +59,17 @@ const renderActivityCards = (activities: AssetHistory[]) => {
         <div class="d-flex justify-content-between align-items-start mb-3">
             <div>
                 <h6 class="fw-semibold mb-1">${getTitleName(activity.status)}</h6>
-                <small class="text-muted">
-                    Employee: ${activity.employee?.lastName ? `${activity.employee?.firstName} ${activity.employee?.lastName}` : activity.employee?.firstName ?? '-'}
-                </small>
-                <br>
-                <small class="text-muted">
+                <small class="text-muted" >
                     Asset: ${activity.asset.name}
                 </small>
+                <br>
+                ${activity.employee?.firstName ? `
+                    <small class="text-muted" >
+                        Employee: ${activity.employee?.lastName ? `${activity.employee?.firstName} ${activity.employee?.lastName}` : activity.employee?.firstName}
+                    </small>` : ""
+            }
             </div>
-            <small class="text-muted">
+            <small class= "text-muted" >
                 ${moment(new Date(activity.date)).format('YYYY-MM-DD')}
             </small>
         </div>

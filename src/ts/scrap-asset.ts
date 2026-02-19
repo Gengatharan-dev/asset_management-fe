@@ -44,7 +44,6 @@ export interface GetAssetsRes extends CommonAPIRes<GetAssetsAPI> { }
 // Return Asset 
 export interface ScrapAssetReq {
     assetId: string;
-    empId: string;
     scrapDate: string;
     notes: string | null;
 }
@@ -77,7 +76,6 @@ $("#returnForm").on("submit", async function (this: HTMLFormElement, event: JQue
     const payload: ScrapAssetReq = {
         assetId: $("#scrapedAsset").val() as string,
         notes: $("#notes").val() as string,
-        empId: $("#empId").val() as string,
         scrapDate: $("#scrapDate").val() as string,
     };
     await ScrapAssetAPI(payload);
@@ -93,7 +91,6 @@ $("#scrapedAsset").on("change", async () => {
     const selectedText = $("#scrapedAsset option:selected").text();
     const selectedVal = $("#scrapedAsset  option:selected").val();
     const { history, createdAt } = await getAssetAPI(selectedVal);
-    $("#empId").val(history?.employee?.id);
 
     $("#scrapSummaryContent").html(`
         <div class="text-start w-100">
@@ -114,7 +111,6 @@ $("#scrapedAsset").on("change", async () => {
 const clearForm = () => {
     $("#scrapedAsset").val("<option value=''>Select asset to scrap</option>");
     $("#notes").val("");
-    $("#empId").val("");
     $("#scrapSummaryContent").html(`
             <i class="bi bi-box-seam fs-1 d-block mb-2"></i>
             <span>No asset selected</span>

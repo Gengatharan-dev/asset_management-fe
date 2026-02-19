@@ -167,11 +167,10 @@ $(document).ready(async () => {
                 data: "isActive",
                 orderable: true,
                 render: function (data: boolean) {
-                    return `
-                    <span class="badge bg-dark">
-                        ${data ? "Active" : "Inactive"}
-                    </span>
-                `;
+                    return `${data ?
+                        `<span class="badge bg-success">Active</span>`
+                        : `<span class="badge bg-dark">Inactive</span>`
+                        }`;
                 }
             },
             {

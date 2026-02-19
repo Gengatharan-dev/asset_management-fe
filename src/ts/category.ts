@@ -1,3 +1,4 @@
+import moment from "moment";
 import { fetchAPICall, getCategoriesAPI, openSuccessToast, type CategoryDetail, type GetCategoryAPIRes } from "./common.js";
 import jQuery from "jquery";
 
@@ -117,7 +118,7 @@ const renderCategoryCards = (categories: CategoryDetail[]) => {
                 </p>
 
                 <small class="text-muted d-block mb-3">
-                    Created: ${category.createdAt}
+                    Created: ${moment(new Date(category.createdAt)).format('MMM DD, YYYY')}
                 </small>
 
                 <hr>

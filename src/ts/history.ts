@@ -1,3 +1,4 @@
+import moment from "moment";
 import { AssetStatusNo, type AssetHistory } from "./asset.js";
 import { type CategoryDetail, fetchAPICall } from "./common.js";
 import jQuery from "jquery";
@@ -83,7 +84,7 @@ const renderTimeline = (histories: AssetHistory[]) => {
 
             <div class="timeline-content">
                 <h6 class="mb-1">${getTitleName(item.status, item.reasonStatus)}</h6>
-                <small class="text-muted">${item.date}</small>
+                <small class="text-muted">${moment(new Date(item.date)).format('MMM DD, YYYY HH:mm A')}</small>
                 ${name ? `<p class="mb-0 mt-2">Employee: ${name}</p>` : ''}
             </div>
 

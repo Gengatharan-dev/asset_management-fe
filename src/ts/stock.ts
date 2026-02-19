@@ -15,7 +15,7 @@ export enum StockSortColumnNo {
 
 let table: any;
 
-$(document).ready( async () => {
+$(document).ready(async () => {
 
     table = $('#stockTable').DataTable({
         processing: true,

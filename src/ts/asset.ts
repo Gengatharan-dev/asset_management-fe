@@ -349,7 +349,7 @@ $(document).ready(async () => {
             $("#assetId").val(asset.id);
             $("#name").val(asset.name);
             $("#category").val(asset.category.id).trigger('change');
-            
+
             const models = await getModelAPI(asset.category.id);
             appendModelOptions(models ?? []);
 
@@ -382,15 +382,15 @@ export const getAddAndEditAssetFormDetail = async () => {
 export const getAssetStatus = (status: number) => {
     switch (status) {
         case AssetStatusNo.InStack:
-            return `<span class="badge bg-success text-dark" >
+            return `<span class="badge bg-success text-white" >
                         ${AssetStatus.InStack}
                     </span>`;
         case AssetStatusNo.Issued:
-            return `<span class="badge bg-primary text-dark" >
+            return `<span class="badge bg-primary text-white" >
                         ${AssetStatus.Issued}
                     </span>`;
         case AssetStatusNo.Return:
-            return `<span class="badge bg-warning text-dark" >
+            return `<span class="badge bg-warning text-white" >
                         ${AssetStatus.Return}
                     </span>`;
 

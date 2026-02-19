@@ -1,4 +1,4 @@
-# Welcome to Admin Dashboard Frontend
+# Welcome to Asset Management Frontend
 
 
 # Developer Setup
